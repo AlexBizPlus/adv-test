@@ -1,6 +1,13 @@
 const triggers = document.querySelectorAll(".tooltip__trigger");
 
 const toggleMenu = (e) => {
+  console.log(e.target.parentElement);
+
+  const isTooltopVisible =
+    !!e.target.parentElement.querySelector(".tooltip__text");
+
+  if (isTooltopVisible) return;
+
   const template = document.querySelector("#template-tooltip");
   const tooltip = template.content.cloneNode(true);
   const wrapper = tooltip.querySelector(".tooltip__text");
