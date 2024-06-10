@@ -1,36 +1,188 @@
 :root {
   --width: 12rem;
   --height: 16rem;
+  --bg-color: rgb(228, 167, 157);
 }
 
 .list {
+  display: flex;
+  overflow-y: auto;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  padding-bottom: 0.313rem;
+  column-gap: 0.625rem;
+  scroll-snap-type: x mandatory;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.625rem;
+}
+
+.list::-webkit-scrollbar {
+  width: 0.313rem;
+  height: 0.313rem;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: gray;
+  cursor: pointer;
+  border-radius: 0.625rem;
 }
 
 .item {
-  background: red;
+  position: relative;
   width: var(--width);
   height: var(--height);
+  scroll-snap-align: start;
+}
+
+.header {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0.625rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 
 .link {
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  align-items: end;
+  width: var(--width);
+  height: var(--height);
   text-decoration: none;
+  z-index: 0;
 }
 
-.image {
+.image__wrap {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -1;
+  border-radius: 0.313rem;
 }
 
-.caption {
-  width: calc(var(--width) * 0.8);
+.image__img {
+  border-radius: 0.313rem;
+}
+
+.caption__wrap {
+  /* width: calc(var(--width) * 0.8); */
   height: calc(var(--height) * 0.3);
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  padding-top: 3.125rem;
+  background: linear-gradient(
+    to top,
+    var(--bg-color) 0%,
+    var(--bg-color) 70px,
+    transparent 100%
+  );
+  border-bottom-left-radius: 0.313rem;
+  border-bottom-right-radius: 0.313rem;
+}
+
+.caption__text {
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+}
+
+.tooltip__trigger {
+  display: flex;
+  background: rgba(45, 45, 45, 0.3);
+  border-radius: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.tooltip__trigger:hover {
+  opacity: 0.6;
+}
+
+.tooltip__trigger svg {
+  pointer-events: none;
+}
+
+.tooltip__text {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0.625rem;
+  left: calc(var(--width) * 0.05);
+  width: calc(var(--width) * 0.9);
+  background: white;
+  color: black;
+  padding: 0.313rem;
+  border-radius: 0.3rem;
+  z-index: 1;
+}
+
+.tooltip__button {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tooltip__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.4rem;
+  width: 1px;
+  height: 100%;
+  rotate: 45deg;
+  background: black;
+}
+
+.tooltip__button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.4rem;
+  width: 1px;
+  height: 100%;
+  rotate: -45deg;
+  background: black;
+}
+
+.tooltip__text span:nth-child(2) {
+  padding-right: 1.1rem;
+}
+
+.word {
+  color: white;
+  font-size: 8px;
+  line-height: 1.5;
+  background: rgba(45, 45, 45, 0.3);
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  border-radius: 1.875rem;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
 }

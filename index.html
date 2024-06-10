@@ -6,64 +6,210 @@
     <title>Test task</title>
     <base href="/" />
     <link rel="stylesheet" href="/styles.css" />
-    <script src="/script.js" async></script>
+    <script src="/script.js" defer></script>
   </head>
   <body>
     <ul class="list">
       <li class="item">
-        <a href="" class="link">
-          <picture>
-            <source type="image/webp" srcset="img/kitty1.webp" />
-            <img class="image" src="img/sun.jpg" alt="Картинка с размерами" />
-          </picture>
+        <div class="header">
           <span class="word">Реклама</span>
-          <span class="tooltip">( i )</span>
-          <p class="caption">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore
-          </p>
-        </a>
-      </li>
-      <li class="item">
-        <a href="">
-          <picture>
-            <source type="image/webp" srcset="img/kitty2.webp" />
-            <img src="img/kitty2.jpg" alt="Картинка с размерами" />
-          </picture>
-        </a>
-      </li>
-      <li class="item">
-        <a href="">
-          <picture>
-            <source type="image/webp" srcset="img/kitty3.webp" />
-            <img src="img/kitty3.jpg" alt="Картинка с размерами" />
-          </picture>
-        </a>
-      </li>
-      <li class="item">
-        <a href="">
-          <picture>
-            <source type="image/webp" srcset="img/kitty4.webp" />
-            <img src="img/kitty4.jpg" alt="Картинка с размерами" />
-          </picture>
-        </a>
-      </li>
-      <li class="item">
-        <a href="">
-          <picture>
-            <source type="image/webp" srcset="img/kitty5.webp" />
-            <img src="img/kitty5.jpg" alt="Картинка с размерами" />
-          </picture>
-        </a>
-      </li>
-      <li class="item">
-        <a href="">
-          <picture>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
             <source type="image/webp" srcset="img/kitty1.webp" />
-            <img src="img/kitty1.jpg" alt="Картинка с размерами" />
+            <img
+              class="image__img"
+              src="img/sun.jpg"
+              alt="Картинка с размерами"
+            />
           </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="header">
+          <span class="word">Реклама</span>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
+            <source type="image/webp" srcset="img/kitty2.webp" />
+            <img
+              class="image__img"
+              src="img/kitty2.jpg"
+              alt="Картинка с размерами"
+            />
+          </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="header">
+          <span class="word">Реклама</span>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
+            <source type="image/webp" srcset="img/kitty3.webp" />
+            <img
+              class="image__img"
+              src="img/kitty3.jpg"
+              alt="Картинка с размерами"
+            />
+          </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="header">
+          <span class="word">Реклама</span>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
+            <source type="image/webp" srcset="img/kitty4.webp" />
+            <img
+              class="image__img"
+              src="img/kitty4.jpg"
+              alt="Картинка с размерами"
+            />
+          </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="header">
+          <span class="word">Реклама</span>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
+            <source type="image/webp" srcset="img/kitty5.webp" />
+            <img
+              class="image__img"
+              src="img/kitty5.jpg"
+              alt="Картинка с размерами"
+            />
+          </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="header">
+          <span class="word">Реклама</span>
+          <button type="button" class="tooltip__trigger">
+            <svg
+              style="width: 0.75rem; height: 0.75rem"
+              viewBox="0 -3 8 26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="white" cx="4" cy="3" r="2"></circle>
+              <circle fill="white" cx="4" cy="10" r="2"></circle>
+              <circle fill="white" cx="4" cy="17" r="2"></circle>
+            </svg>
+          </button>
+        </div>
+        <a href="#link" class="link">
+          <picture class="image__wrap">
+            <source type="image/webp" srcset="img/kitty1.webp" />
+            <img
+              class="image__img"
+              src="img/kitty1.jpg"
+              alt="Картинка с размерами"
+            />
+          </picture>
+          <div class="caption__wrap">
+            <p class="caption__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
+          </div>
         </a>
       </li>
     </ul>
+    <template id="template-tooltip">
+      <div class="tooltip__text">
+        <button type="button" class="tooltip__button"></button>
+        <span>Рекламодатель: Николай Иванович Родберг</span>
+        <span>ИНН: 541588393718</span>
+        <span>ERID: 2SDnjeb6KeH</span>
+      </div>
+    </template>
   </body>
 </html>
