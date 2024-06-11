@@ -1,15 +1,105 @@
-function slider() {
-  const list = document.querySelectorAll(".list");
-  const firstItem = document.querySelector(".item:first-child");
-  const lastItem = document.querySelector(".item:last-child");
+const slider = () => {
+  const list = document.querySelector(".list");
+  const items = document.querySelectorAll(".item");
+  const firstItem = items[0];
+  const lastItem = items[items.length - 1];
+  const before = list.querySelector(".before");
+  const after = list.querySelector(".after");
+  const rightButton = list.querySelector(".slider__button--right");
+  const leftButton = list.querySelector(".slider__button--left");
 
-  if (!list?.length || !firstItem || !lastItem) return;
+  const width = parseInt(getComputedStyle(firstItem).width);
 
-  console.log(firstItem);
-  console.log(lastItem);
-}
+  if (
+    !list ||
+    !firstItem ||
+    !lastItem ||
+    !before ||
+    !after ||
+    !rightButton ||
+    !leftButton
+  )
+    return;
+
+  const mouseOverLeft = () => {
+    leftButton.classList.remove("hidden");
+  };
+
+  const mouseLeaveLeft = () => {
+    !leftButton.matches(":hover") && leftButton.classList.add("hidden");
+  };
+
+  const mouseOverRight = () => {
+    rightButton.classList.remove("hidden");
+  };
+
+  const mouseLeaveRight = () => {
+    !rightButton.matches(":hover") && rightButton.classList.add("hidden");
+  };
+
+  const scroll = (direction) => {
+    list.style["scroll-snap-type"] = "none";
+
+    let scrollAmount = 0;
+    let slideTimer = setInterval(() => {
+      list.scrollLeft =
+        direction === "left" ? list.scrollLeft - 20 : list.scrollLeft + 20;
+      scrollAmount += 10;
+      if (scrollAmount >= width) {
+        window.clearInterval(slideTimer);
+        list.style["scroll-snap-type"] = "x mandatory";
+      }
+    }, 25);
+  };
+
+  const scrollLeft = () => scroll("left");
+  const scrollRight = () => scroll("right");
+
+  before.addEventListener("mouseover", mouseOverLeft);
+  before.addEventListener("mouseleave", mouseLeaveLeft);
+
+  after.addEventListener("mouseover", mouseOverRight);
+  after.addEventListener("mouseleave", mouseLeaveRight);
+
+  leftButton.addEventListener("click", scrollLeft);
+  rightButton.addEventListener("click", scrollRight);
+
+  const firstItemObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.target) return;
+      if (!entry.isIntersecting || entry.intersectionRatio <= 0.2) {
+        before.classList.remove("hidden");
+      } else {
+        before.classList.add("hidden");
+        leftButton.classList.add("hidden");
+      }
+    },
+    {
+      // Тригер сработает при выходе как верхней, так и нижней границы
+      threshold: [0.2, 0.8],
+    }
+  );
+
+  const lastItemObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.target) return;
+
+      if (!entry.isIntersecting || entry.intersectionRatio <= 0.1) {
+        after.classList.remove("hidden");
+      } else {
+        after.classList.add("hidden");
+        rightButton.classList.add("hidden");
+        // scrollRight();
+      }
+    },
+    {
+      // Тригер сработает при выходе как верхней, так и нижней границы
+      threshold: [0.4],
+    }
+  );
+
+  firstItemObserver.observe(firstItem);
+  lastItemObserver.observe(lastItem);
+};
 
 slider();
-
-// const firstItem = items
-// const lastItem = items[items.length - 1]; // items.at(-1)

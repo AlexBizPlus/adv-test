@@ -2,9 +2,15 @@
   --width: 12rem;
   --height: 16rem;
   --bg-color: rgb(228, 167, 157);
+  --bg-button: wheat;
+}
+
+body {
+  margin: 0;
 }
 
 .list {
+  position: relative;
   display: flex;
   overflow-y: auto;
   list-style-type: none;
@@ -13,6 +19,23 @@
   padding-bottom: 0.313rem;
   column-gap: 0.625rem;
   scroll-snap-type: x mandatory;
+}
+
+.invisible {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: calc(var(--width) * 0.5);
+  height: var(--height);
+  z-index: 1;
+}
+
+.before {
+  left: 0;
+}
+
+.after {
+  right: 0;
 }
 
 .list::-webkit-scrollbar-track {
@@ -185,4 +208,33 @@
   pointer-events: none;
   user-select: none;
   z-index: 1;
+}
+
+.slider__button {
+  position: fixed;
+  top: calc(var(--height) * 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  background: var(--bg-button);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slider__button--right {
+  right: 1rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.slider__button--left {
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }

@@ -1,5 +1,3 @@
-const triggers = document.querySelectorAll(".tooltip__trigger");
-
 const toggleMenu = (e) => {
   const isTooltipVisible =
     !!e.target.parentElement.querySelector(".tooltip__text");
@@ -17,4 +15,11 @@ const toggleMenu = (e) => {
   e.target.after(tooltip);
 };
 
-triggers.forEach((trigger) => trigger.addEventListener("click", toggleMenu));
+const popup = () => {
+  const triggers = document.querySelectorAll(".tooltip__trigger");
+  if (!triggers.length) return;
+
+  triggers.forEach((trigger) => trigger.addEventListener("click", toggleMenu));
+};
+
+popup();
